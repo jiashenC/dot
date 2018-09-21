@@ -8,12 +8,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin maintained by vundle
 Plugin 'sjl/badwolf'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'itchyny/lightline.vim'
 Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
 
 " highlight line and column
 set cursorline
@@ -24,15 +22,6 @@ syntax enable
 
 " color
 colorscheme badwolf
-
-" set tab to be space
-set expandtab
-
-" number of space count for tab
-set tabstop=4
-
-" number of space count for tab during editing
-set softtabstop=4
 
 " show line number
 set number
