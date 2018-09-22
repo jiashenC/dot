@@ -63,4 +63,4 @@ nnoremap gV `[v`]
 let mapleader=" "
 
 " jk is escape
-inoremap jk <esc>
+noremap jk <esc>
