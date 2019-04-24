@@ -100,3 +100,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 DEFAULT_USER=$USER
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
