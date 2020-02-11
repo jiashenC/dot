@@ -5,12 +5,27 @@ call vundle#begin()
 " let vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
 
-" plugin maintained by vundle
+" theme
 Plugin 'sjl/badwolf'
+
+" git
 Plugin 'airblade/vim-gitgutter'
+
+" auto complete
 Plugin 'Valloric/YouCompleteMe'
+
+" syntax check
 Plugin 'vim-syntastic/syntastic'
+
+" indentation
 Plugin 'nathanaelkane/vim-indent-guides'
+
+" google formatter
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+
+" flag controller
+Plugin 'google/vim-glaive'
 
 call vundle#end()
 
@@ -18,7 +33,11 @@ call vundle#end()
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup cfamily
     au!
-    au BufEnter,BufNewFile *.h,*.cc,*c setlocal ts=2 sw=2 sts=2 expandtab
+    au BufEnter,BufNewFile *.h,*.cc,*c,*cpp setlocal ts=2 sw=2 sts=2 expandtab
+augroup END
+augroup verilogfamily
+    au!
+    au BufEnter,BufNewFile *.v setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
 
 " highlight line and column
@@ -96,3 +115,6 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_aggregate_errors=1
+
+" cursor at middle
+set so=999
