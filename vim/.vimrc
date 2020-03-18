@@ -27,13 +27,19 @@ Plugin 'google/vim-codefmt'
 " flag controller
 Plugin 'google/vim-glaive'
 
+" status bar
+Plugin 'itchyny/lightline.vim'
+
+" asynchronous syntax checking
+Plugin 'dense-analysis/ale'
+
 call vundle#end()
 
 " add language specific indentation rules
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup cfamily
     au!
-    au BufEnter,BufNewFile *.h,*.cc,*c,*cpp setlocal ts=2 sw=2 sts=2 expandtab
+    au BufEnter,BufNewFile *.h,*.cc,*c,*cpp,*hpp setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
 augroup verilogfamily
     au!
@@ -118,3 +124,6 @@ let g:syntastic_aggregate_errors=1
 
 " cursor at middle
 set so=999
+
+" status bar
+set laststatus=2
