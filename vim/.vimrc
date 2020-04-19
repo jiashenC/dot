@@ -6,7 +6,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " theme
-Plugin 'sjl/badwolf'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " git
 Plugin 'airblade/vim-gitgutter'
@@ -46,16 +46,17 @@ augroup verilogfamily
     au BufEnter,BufNewFile *.v setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
 
+" set terminal color
+syntax enable
+colorscheme dracula
+set termguicolors
+
 " highlight line and column
 set cursorline
 set cursorcolumn
 
 " enable syntax processing
-syntax enable
 filetype on
-
-" color
-colorscheme badwolf
 
 " show line number
 set number
