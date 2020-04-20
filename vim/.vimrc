@@ -5,7 +5,7 @@ call vundle#begin()
 " let vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
 
-" theme
+" theme 
 Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " git
@@ -14,11 +14,8 @@ Plugin 'airblade/vim-gitgutter'
 " auto complete
 Plugin 'Valloric/YouCompleteMe'
 
-" syntax check
-Plugin 'vim-syntastic/syntastic'
-
 " indentation
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 
 " google formatter
 Plugin 'google/vim-maktaba'
@@ -28,12 +25,33 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 
 " status bar
-Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " asynchronous syntax checking
 Plugin 'dense-analysis/ale'
 
 call vundle#end()
+
+" git gutter priority
+let g:gitgutter_sign_priority=9
+
+" ale syntax checking
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_lint_on_save = 1
+let g:ale_sign_priority=30
+
+" identation
+let g:indentLine_leadingSpaceEnabled = 1
+
+" git-gutter
+cmap gge GitGutterEnable
+cmap ggd GitGutterDisable
+
+" google code formatter
+cmap fc FormatCode
 
 " add language specific indentation rules
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
@@ -47,9 +65,16 @@ augroup verilogfamily
 augroup END
 
 " set terminal color
+syntax on
 syntax enable
 colorscheme dracula
-set termguicolors
+
+" hack to use vim and vim + tmux
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " highlight line and column
 set cursorline
@@ -84,47 +109,36 @@ set incsearch
 set hlsearch
 
 " move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+nmap j gj
+nmap k gk
 
 " move to beginning/end of line
-nnoremap B ^
-nnoremap E $
+nmap B ^
+nmap E $
 
 " highlight last inserted text
-nnoremap gV `[v`]
+nmap gV `[v`]
 
 " change leader key to space
 let mapleader=" "
 
 " jk is escape
-inoremap jk <esc>
+imap jk <esc>
 
 " enable filetype indent
 filetype plugin indent on
 
 " window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" enable syntac check
-let g:syntastic_c_checkers=['gcc', 'make']
-let g:syntastic_enable_c_checker=1
-let g:syntastic_python_checkers=['python']
-let g:syntastic_enable_python_checker=1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_aggregate_errors=1
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 " cursor at middle
 set so=999
 
 " status bar
 set laststatus=2
+
+" redraw
+cmap redr redraw!
