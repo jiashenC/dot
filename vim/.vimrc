@@ -31,6 +31,9 @@ Plugin 'vim-airline/vim-airline-themes'
 " asynchronous syntax checking
 Plugin 'dense-analysis/ale'
 
+" commenting tool
+Plugin 'tpope/vim-commentary'
+
 call vundle#end()
 
 " git gutter priority
@@ -142,3 +145,6 @@ set laststatus=2
 
 " redraw
 cmap redr redraw!
+
+" act like fuzzy finder
+set path+=**
