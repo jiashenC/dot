@@ -62,6 +62,10 @@ augroup cfamily
     au!
     au BufEnter,BufNewFile *.h,*.cc,*c,*cpp,*hpp setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
+augroup texfamily
+    au!
+    au BufEnter,BufNewFile *.tex,*.sty setlocal ts=2 sw=2 sts=2 expandtab
+augroup END
 augroup verilogfamily
     au!
     au BufEnter,BufNewFile *.v setlocal ts=2 sw=2 sts=2 expandtab
@@ -146,5 +150,7 @@ set laststatus=2
 " redraw
 cmap redr redraw!
 
-" act like fuzzy finder
-set path+=**
+" set python interpreter
+let g:ycm_server_python_interpreter = "/Users/jiashenc/Env/py3/bin/python"
+nnoremap ,gtd :YcmCompleter GoToDefinition<CR>
+nnoremap ,gtr :YcmCompleter GoToReferences<CR>
