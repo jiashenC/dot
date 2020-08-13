@@ -5,7 +5,7 @@ call vundle#begin()
 " let vundle manages itself
 Plugin 'VundleVim/Vundle.vim'
 
-" theme 
+" theme
 Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " git
@@ -17,12 +17,12 @@ Plugin 'Valloric/YouCompleteMe'
 " indentation
 Plugin 'Yggdroot/indentLine'
 
-" google formatter
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
+" formatter
+Plugin 'Chiel92/vim-autoformat'
 
 " flag controller
 Plugin 'google/vim-glaive'
+Plugin 'google/vim-maktaba'
 
 " status bar
 Plugin 'vim-airline/vim-airline'
@@ -54,21 +54,21 @@ cmap gge GitGutterEnable
 cmap ggd GitGutterDisable
 
 " google code formatter
-cmap fc FormatCode
+cmap fc Autoformat
 
 " add language specific indentation rules
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup cfamily
-    au!
-    au BufEnter,BufNewFile *.h,*.cc,*c,*cpp,*hpp setlocal ts=2 sw=2 sts=2 expandtab
+  au!
+  au BufEnter,BufNewFile *.h,*.cc,*c,*cpp,*hpp setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
 augroup texfamily
-    au!
-    au BufEnter,BufNewFile *.tex,*.sty setlocal ts=2 sw=2 sts=2 expandtab
+  au!
+  au BufEnter,BufNewFile *.tex,*.sty setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
 augroup verilogfamily
-    au!
-    au BufEnter,BufNewFile *.v setlocal ts=2 sw=2 sts=2 expandtab
+  au!
+  au BufEnter,BufNewFile *.v setlocal ts=2 sw=2 sts=2 expandtab
 augroup END
 
 " set terminal color
@@ -102,7 +102,7 @@ set backspace=indent,eol,start
 " set specifc indent for different file types
 filetype indent on
 
-" autocomplete for command 
+" autocomplete for command
 set wildmenu
 
 " highlight matching for [{()}]
