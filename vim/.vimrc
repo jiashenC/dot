@@ -154,3 +154,6 @@ cmap redr redraw!
 let g:ycm_server_python_interpreter = "/Users/jiashenc/Env/py3/bin/python"
 nnoremap ,gtd :YcmCompleter GoToDefinition<CR>
 nnoremap ,gtr :YcmCompleter GoToReferences<CR>
+
+" transparent background
+hi Normal guibg=NONE ctermbg=NONE
